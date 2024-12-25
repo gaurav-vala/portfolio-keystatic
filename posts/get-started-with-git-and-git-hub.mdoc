@@ -1,0 +1,93 @@
+---
+title: Get started with Git and GitHub
+---
+These are the most basic and common steps or commands you can follow to put your code on Git and Github.
+
+If you don't know git and GitHub very well this could be the starting point.
+
+You need to open your terminal in your project folder to run the commands.
+
+*Make sure that Git is Installed on your Computer*
+
+***To check that use this***
+***command that will print the current version installed on your device***
+
+```
+git --version
+```
+
+If you don't have it installed you can download git from here, [Git installer](https://git-scm.com/downloads)
+
+Now let's get you using Git/GitHub
+
+## 🌟 git init
+
+```
+git init
+```
+
+This command will create a local repository (folder) for your project in it's internal system which you can see and use using different commands.
+
+## 🌟 git add
+
+```
+git add .
+```
+
+Using the .(dot) will add all the files in your project to **staging area** where all files are ready to put in git repository
+
+*you can specify the files you want add here instead of using dot*
+
+## 🌟 git commit
+
+```
+git commit -m "first commit"
+```
+
+This will put(copy) all the files that you added to staging previously to your local repository
+
+Here the **-m flag** points to the message that you will add with your code commit  so whenever any other developer checks your repository or commit-logs they can see what changes have been done to the code.
+
+> It is a good practice here to write specific messages rather than some simple sentances like “code changed” or “link added”.
+
+---
+
+**Now we'll host this local repository online so that anyone from any part of the world can look at your code that you put there.**
+
+There are lots of online repository hosting  platforms like *GitHub* , *GitLab* and *BitBucket* but here I've used [GitHub](github.com) here as it's widely used and popular.
+
+First you'll just have to make a GitHub account and follow below steps, they are mix of some ui use and commands
+
+## 🌟 make new repository on GitHub
+
+Going to GitHub's page you can see a *make a new repository* button on corner, click on that, give a name and fill some info required and you are good to go.
+
+> Now the steps after this can also be seen on a new repository page on Github Site you can follow that too
+
+## 🌟 git remote add origin
+
+```
+git remote add origin 'repository_url' 
+```
+
+Here, remote works like a name to your long **Repository URL**, so whenever you want to reference to that repository you can just use origin(which is your remote name), by convention origin is used as the name but you can use whatever.
+
+\##🌟 git push
+
+```
+git push origin master
+```
+
+Git push will will push your local repository code to remote repository where anyone can see your code online, unless you make your repository private
+
+Here as you know `origin` will be the reference to your repository url and `master` will be the main/master branch of your repository.
+
+Now if you refresh your repository page you can see your code on GitHub
+
+**At first, this process can be a bit confusing and lengthy but you need to practice and put all your coding work using these so you can get more comfortable with this process**
+
+> If you want a deep understanding of all basic and advanced features of Git GitHub, you can check this tutorial by Kunal Kushwaha - [Tutorial Link](https://youtu.be/apGV9Kg7ics)
+
+---
+
+**👨‍💻 If you found the content i share useful than share it with your developer friends and also follow me on [Instagram](https://www.instagram.com/gaurav_vaala/) and [Twitter](https://twitter.com/gaurav_vaala)**
