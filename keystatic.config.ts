@@ -1,4 +1,4 @@
-import { config, collection, fields } from '@keystatic/core';
+import { config, collection, fields, singleton } from '@keystatic/core';
 
 export const markdocConfig = fields.markdoc.createMarkdocConfig({});
 
@@ -57,5 +57,14 @@ export default config({
         title: fields.slug({ name: { label: 'Skill' } }),
       },
     })
+  },
+  singletons: {
+    about: singleton({
+      label: "About Me Page",
+      path: "content/about-me/index",
+      schema: {
+        description: fields.mdx({ label: "About Me Page Content" }),
+      },
+    }),
   },
 });

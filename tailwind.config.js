@@ -13,6 +13,7 @@ module.exports = {
     extend: {
       fontFamily: {
         serif: '"Instrument Serif", serif',
+        sans: '"Inter", sans-serif',
       },
     },
   },

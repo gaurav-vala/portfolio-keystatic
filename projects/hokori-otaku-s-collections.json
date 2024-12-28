@@ -1,0 +1,7 @@
+{
+  "title": "Hokori Otaku's Collections",
+  "onhomepage": true,
+  "description": "The site is kind of a Blogging or NEWS Site, for an Anime Page. Goal was to be able to post from anywhere even without getting onto PC and also to learn a new tech stack.",
+  "technologies": "AstroJS, Keystatic, TailwindCSS",
+  "live": "https://hokoriotaku.vercel.app/"
+}

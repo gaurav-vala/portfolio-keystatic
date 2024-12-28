@@ -1,6 +1,7 @@
 "use client";
 
-import Link from "next/link";
+// import Link from "next/link";
+import { Link } from "next-view-transitions";
 import React, { useState, useEffect } from "react";
 
 function Header() {
@@ -37,6 +38,7 @@ function Header() {
           { href: "/projects", label: "Projects" },
           { href: "/posts", label: "Blogs" },
           { href: "/notes", label: "Notes" },
+          { href: "/about", label: "About" },
         ].map((item) => (
           <li key={item.href} className="dark:text-white">
             <Link

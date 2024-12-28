@@ -22,24 +22,30 @@ const SingleProject = ({ entry }) => {
         ))}
       </ul>
 
-      <div className="flex gap-2 pt-3">
-        <a
-          href={entry.live}
-          target="_blank"
-          rel="noreferrer"
-          className="font-serif text-lg italic font-black underline dark:text-neutral-300"
-        >
-          View Project
-        </a>
-        <a
-          href={entry.github}
-          target="_blank"
-          rel="noreferrer"
-          className="font-serif text-lg italic font-black underline dark:text-neutral-300"
-        >
-          View Code
-        </a>
-      </div>
+      {(entry.live || entry.github) && (
+        <div className="flex gap-2 pt-3">
+          {entry.live && (
+            <a
+              href={entry.live}
+              target="_blank"
+              rel="noreferrer"
+              className="font-serif text-lg italic font-black underline dark:text-neutral-300"
+            >
+              View Project
+            </a>
+          )}
+          {entry.github && (
+            <a
+              href={entry.github}
+              target="_blank"
+              rel="noreferrer"
+              className="font-serif text-lg italic font-black underline dark:text-neutral-300"
+            >
+              View Code
+            </a>
+          )}
+        </div>
+      )}
     </div>
   );
 };

@@ -1,0 +1,7 @@
+{
+  "title": "Graphic Desinger Portfolio",
+  "onhomepage": false,
+  "description": "This a Design Portfolio I created for my brother; The main goal was to create a system for him to be able to upload his artwork from anywhere or even from his phone.",
+  "technologies": "AstroJS, Keystatic, TailwindCSS",
+  "live": "https://www.jimitvala.art/"
+}

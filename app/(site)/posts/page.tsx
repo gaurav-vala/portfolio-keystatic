@@ -1,14 +1,11 @@
 import React from "react";
 
 import "../styles.css";
-import Header from "../components/Header";
-import Blogs from "../components/Blogs";
-import Footer from "../components/Footer";
+import Blogs from "../../components/Blogs";
 
 const page = () => {
   return (
     <>
-      <Header />
       <section className="mb-5">
         <h2 className="text-3xl italic font-black text-red-500">My Blogs</h2>
         <p className="mt-2 text-sm font-medium leading-snug tracking-tight text-black dark:text-neutral-300">
@@ -18,7 +15,6 @@ const page = () => {
         </p>
       </section>
       <Blogs count={50} />
-      <Footer />
     </>
   );
 };

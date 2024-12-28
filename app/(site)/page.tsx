@@ -1,12 +1,13 @@
-import Header from "./components/Header";
-import { reader } from "./reader";
+import Header from "../components/Header";
+import { reader } from "../reader";
 import { FileUser, Github, Linkedin, Mail } from "lucide-react";
 
 import "./styles.css";
-import SingleProject from "./components/SingleProject";
-import { use, useEffect, useState } from "react";
-import Blogs from "./components/Blogs";
-import Footer from "./components/Footer";
+import SingleProject from "../components/SingleProject";
+import { motion } from "motion/react";
+import Blogs from "../components/Blogs";
+import Footer from "../components/Footer";
+import Link from "next/link";
 
 const SocialLink = ({ href, icon: Icon, label }) => (
   <a
@@ -46,11 +47,16 @@ export default async function Homepage() {
 
   return (
     <>
-      <Header />
       <section>
         <div className="flex items-center justify-between gap-4 md:flex-col-reverse md:items-start">
-          <h1 className="w-full text-4xl italic font-black dark:text-white max-w-[600px]">
-            Hey! Welcome to my corner of the internet
+          <h1 className="w-full text-4xl font-serif font-black tracking-tight dark:text-white md:max-w-full max-w-[600px]">
+            Hey!
+            <span className="font-serif italic tracking-tight">
+              {" "}
+              welcome{" "}
+            </span>{" "}
+            to my corner of the{" "}
+            <span className="font-serif italic"> internet</span>
           </h1>
           <img
             src="/images/pfp.webp"
@@ -58,11 +64,11 @@ export default async function Homepage() {
             alt="Profile Picture"
           />
         </div>
-        <p className="mt-4 leading-snug tracking-tight text-neutral-700 dark:text-neutral-300">
-          I am <span className="italic">Gaurav</span>, and this site is the
-          platform or medium for me to share things I do and love. Here you will
-          find my professional and personal interests, my work, and hobbies. You
-          can poke around and see what I am up to.
+        <p className="mt-4 text-sm font-medium leading-snug tracking-tight md:text-base text-neutral-700 dark:text-neutral-300">
+          I am gaurav, and this site is the platform or medium for me to share
+          things I do and love. Here you will find my professional and personal
+          interests, my work, and hobbies. You can poke around and see what I am
+          up to.
         </p>
 
         <div className="mt-4">
@@ -100,10 +106,19 @@ export default async function Homepage() {
         <div className="flex flex-col gap-4 mt-2">
           {
             // @ts-ignore
-            projects.map((project) => (
-              <SingleProject key={project.slug} {...project} />
-            ))
+            projects.map(
+              (project) =>
+                project.entry.onhomepage && (
+                  <SingleProject key={project.slug} {...project} />
+                )
+            )
           }
+          <Link
+            href="/projects"
+            className="font-serif italic font-black tracking-tight underline underline-offset-1 text-neutral-600"
+          >
+            view all projects
+          </Link>
         </div>
       </section>
       <section className="mt-6">
@@ -113,8 +128,6 @@ export default async function Homepage() {
 
         <Blogs count={10} />
       </section>
-
-      <Footer />
     </>
   );
 }
