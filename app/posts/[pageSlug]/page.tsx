@@ -4,6 +4,7 @@ import { query } from "../../lib/hashnode";
 
 import "../../styles.css";
 import { ChevronLeft } from "lucide-react";
+import Footer from "../../components/Footer";
 
 interface PostParams {
   params: { pageSlug: string };
@@ -68,14 +69,16 @@ export default async function Post({ params }: PostParams) {
     <>
       <Header />
       <Link
-        href="/"
+        href="/posts"
         className="flex items-center gap-0 mb-4 text-sm tracking-tight text-neutral-600"
       >
-        <ChevronLeft /> Back to home
+        <ChevronLeft /> Back to blogs
       </Link>
       <article>
         <img src={post.coverImage.url} alt="" />
-        <h1 className="my-2 text-4xl font-black">{post.title}</h1>
+        <h1 className="my-2 text-4xl font-black text-neutral-700">
+          {post.title}
+        </h1>
         <div className="flex items-center gap-2 mt-4">
           <img
             className="rounded-full size-12"
@@ -83,31 +86,35 @@ export default async function Post({ params }: PostParams) {
             alt="Author photo"
           />
           <div>
-            <p className="font-serif text-xl">{post.author.name}</p>
-            <ul className="mt-0">
-              <li className="mt-2 text-xs border-b border-neutral-300 dark:border-neutral-700 w-fit">
-                <a href={post.author.socialMediaLinks.twitter}>Twitter</a>
-              </li>
-            </ul>
+            <p className="font-serif text-xl">
+              {post.author.name} -{" "}
+              <a
+                className="text-base text-red-500"
+                href={post.author.socialMediaLinks.twitter}
+              >
+                Twitter
+              </a>
+            </p>
+            <p className="text-sm text-neutral-700 dark:text-neutral-400">
+              {` `}
+              {new Date(post.publishedAt).toLocaleDateString("en-us", {
+                weekday: "long",
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+              })}
+            </p>
           </div>
         </div>
-        <p className="mt-4 text-neutral-500 dark:text-neutral-400">
-          Published on
-          {` `}
-          {new Date(post.publishedAt).toLocaleDateString("en-us", {
-            weekday: "long",
-            year: "numeric",
-            month: "short",
-            day: "numeric",
-          })}
-        </p>
+
         <div
-          className="mt-6 prose dark:prose-invert"
+          className="max-w-full mt-6 prose prose-red prose-hr:my-4"
           dangerouslySetInnerHTML={{
             __html: post.content.html,
           }}
         />
       </article>
+      <Footer />
     </>
   );
 }

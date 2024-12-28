@@ -22,8 +22,9 @@ body {
     background-image: url("/images/noise.51a05f55.png");
     top: 0;
     left: 0;
-    opacity: 0.5;
-    z-index: -1;
+    opacity: 0.6;
+    z-index: 1;
+    pointer-events: none;
   }
 }
 

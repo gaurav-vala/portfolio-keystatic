@@ -4,17 +4,18 @@ export const markdocConfig = fields.markdoc.createMarkdocConfig({});
 
 export default config({
   storage: {
-    kind: 'github',
-    repo: {
-      name: "portfolio-keystatic",
-      owner: "gaurav-vala",
-    },
+    kind: 'local',
+    // kind: 'github',
+    // repo: {
+    //   name: "portfolio-keystatic",
+    //   owner: "gaurav-vala",
+    // },
   },
   collections: {
-    posts: collection({
-      label: 'Posts',
+    notes: collection({
+      label: 'Notes',
       slugField: 'title',
-      path: 'posts/*',
+      path: 'notes/*',
       format: { contentField: 'content' },
       schema: {
         title: fields.slug({ name: { label: 'Title' } }),
@@ -22,8 +23,8 @@ export default config({
           label: 'Content',
           options: {
             image: {
-              directory: "src/assets/images/posts",
-              publicPath: "@assets/images/posts/",
+              directory: "public/assets/images/posts",
+              publicPath: "/assets/images/posts/", // Adjusted the path
             },
           },
         }),

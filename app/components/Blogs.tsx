@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { query } from "../lib/hashnode";
+import Footer from "./Footer";
 
 interface Post {
   coverImage: {
@@ -13,14 +14,18 @@ interface Post {
   title: string;
 }
 
-const Blogs = async () => {
+type BlogsProps = {
+  count: number;
+};
+
+const Blogs: React.FC<BlogsProps> = async ({ count }) => {
   const {
     data: { publication },
   } = await query({
     query: `
       query($host: String!) {
         publication(host: $host) {
-          posts(first: 10) {
+          posts(first: ${count}) {
             edges {
               node {
                 coverImage {
@@ -46,26 +51,28 @@ const Blogs = async () => {
   );
 
   return (
-    <div className="mt-4">
-      <ul>
-        {posts.map((post) => (
-          <li className="py-1 border-b border-neutral-300" key={post.slug}>
-            {/* {post.coverImage && post.coverImage.url ? (
+    <>
+      <section className="mt-4">
+        <ul>
+          {posts.map((post) => (
+            <li className="py-1 border-b border-neutral-300" key={post.slug}>
+              {/* {post.coverImage && post.coverImage.url ? (
                 <img className="rounded-xl" src={post.coverImage.url} alt="" />
               ) : (
                 ""
               )} */}
 
-            <a
-              className="block font-serif text-base font-semibold text-neutral-700"
-              href={`/posts/${post.slug}`}
-            >
-              {post.title}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
+              <a
+                className="block font-serif text-base font-semibold text-neutral-700"
+                href={`/posts/${post.slug}`}
+              >
+                {post.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </>
   );
 };
 
