@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap");
+@import "inter-ui/inter.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  font-size: 1.25rem;
+  font-family: "Inter", "system-ui";
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url("/images/noise.51a05f55.png");
+    top: 0;
+    left: 0;
+    opacity: 0.6;
+    z-index: 1;
+    pointer-events: none;
+  }
+}
+
+main {
+  max-width: 70ch;
+  margin: auto;
+  line-height: 1.75;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Instrument Serif", serif;
+  margin: 0;
+}
+
+p,
+ul,
+ol {
+  color: #1d1d1d;
+  font-family: "Inter", "system-ui";
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
