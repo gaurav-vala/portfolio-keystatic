@@ -4,12 +4,12 @@ export const markdocConfig = fields.markdoc.createMarkdocConfig({});
 
 export default config({
   storage: {
-    kind: 'local',
-    // kind: 'github',
-    // repo: {
-    //   name: "portfolio-keystatic",
-    //   owner: "gaurav-vala",
-    // },
+    // kind: 'local',
+    kind: 'github',
+    repo: {
+      name: "portfolio-keystatic",
+      owner: "gaurav-vala",
+    },
   },
   collections: {
     notes: collection({
@@ -56,7 +56,25 @@ export default config({
       schema: {
         title: fields.slug({ name: { label: 'Skill' } }),
       },
-    })
+    }),
+    aboutpage: collection({
+      label: 'About Page',
+      slugField: 'title',
+      path: 'aboutpage/*',
+      format: { contentField: 'content' },
+      schema: {
+        title: fields.slug({ name: { label: 'Title' } }),
+        content: fields.mdx({
+          label: 'About Page Content',
+          options: {
+            image: {
+              directory: "public/assets/images/about",
+              publicPath: "/assets/images/about/", // Adjusted the path
+            },
+          },
+        }),
+      },
+    }),
   },
   singletons: {
     about: singleton({
@@ -64,6 +82,14 @@ export default config({
       path: "content/about-me/index",
       schema: {
         description: fields.mdx({ label: "About Me Page Content" }),
+      },
+    }),
+    homepage: singleton({
+      label: 'Homepage',
+      path: 'src/content/homepage/index',
+      schema: {
+        title: fields.text({ label: 'Title' }),
+        description: fields.text({ label: 'Description', multiline: true }),
       },
     }),
   },

@@ -1,8 +1,10 @@
 import Link from "next/link";
-import { query } from "../../../lib/hashnode";
+import { query } from "../../lib/hashnode";
 
 import "../../styles.css";
 import { ChevronLeft } from "lucide-react";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 
 interface PostParams {
   params: { pageSlug: string };
@@ -65,6 +67,7 @@ export default async function Post({ params }: PostParams) {
 
   return (
     <>
+      <Header />
       <Link
         href="/posts"
         className="flex items-center gap-0 mb-4 text-sm tracking-tight text-neutral-600"
@@ -105,12 +108,13 @@ export default async function Post({ params }: PostParams) {
         </div>
 
         <div
-          className="max-w-full mt-6 prose prose-red prose-hr:my-4"
+          className="max-w-full mt-6 prose-sm prose prose-red prose-hr:my-4"
           dangerouslySetInnerHTML={{
             __html: post.content.html,
           }}
         />
       </article>
+      <Footer />
     </>
   );
 }

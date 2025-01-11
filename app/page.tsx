@@ -1,5 +1,4 @@
-import Header from "../components/Header";
-import { reader } from "../reader";
+import { reader } from "./reader";
 import {
   FileUser,
   Github,
@@ -9,9 +8,10 @@ import {
 } from "lucide-react";
 
 import "./styles.css";
-import SingleProject from "../components/SingleProject";
-import Blogs from "../components/Blogs";
-import Footer from "../components/Footer";
+import SingleProject from "./components/SingleProject";
+import Blogs from "./components/Blogs";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import Link from "next/link";
 
 const SocialLink = ({ href, icon: Icon, label }) => (
@@ -52,6 +52,7 @@ export default async function Homepage() {
 
   return (
     <>
+      <Header />
       <section>
         <div className="flex items-center justify-between gap-4 md:flex-col-reverse md:items-start">
           <h1 className="w-full text-4xl font-serif font-black tracking-tight dark:text-white md:max-w-full max-w-[600px]">
@@ -133,6 +134,7 @@ export default async function Homepage() {
 
         <Blogs count={10} />
       </section>
+      <Footer />
     </>
   );
 }

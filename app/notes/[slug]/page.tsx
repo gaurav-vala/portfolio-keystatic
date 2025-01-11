@@ -1,8 +1,10 @@
 import "../../styles.css";
 import React from "react";
 import Markdoc from "@markdoc/markdoc";
-import { reader } from "../../../reader";
-import { markdocConfig } from "../../../../keystatic.config";
+import { reader } from "../../reader";
+import { markdocConfig } from "../../../keystatic.config";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 
 type PostParams = {
   params: {
@@ -39,6 +41,7 @@ export default async function Post({ params }: PostParams) {
   // Render the content using Markdoc's React renderer
   return (
     <>
+      <Header />
       <article className="w-full max-w-full prose-sm prose prose-code:bg-red-100 prose-code:font-mono prose-red min-h-[calc(100vh-236px)]">
         <div className="mb-5">
           <h1 className="text-4xl italic font-black">{post.title}</h1>
@@ -46,6 +49,7 @@ export default async function Post({ params }: PostParams) {
         <hr className="mt-2 border-neutral-300" />
         {Markdoc.renderers.react(renderable, React)}
       </article>
+      <Footer />
     </>
   );
 }

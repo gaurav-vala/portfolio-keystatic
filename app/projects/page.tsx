@@ -1,14 +1,17 @@
 import React from "react";
-import { reader } from "../../reader";
+import { reader } from "../reader";
 
 import "../styles.css";
-import SingleProject from "../../components/SingleProject";
+import SingleProject from "../components/SingleProject";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const Projects = async () => {
   const projects = await reader.collections.projects.all();
 
   return (
     <>
+      <Header />
       <section className="mb-5">
         <h2 className="text-3xl italic font-black text-red-500">My Projects</h2>
         <p className="mt-2 text-sm font-medium leading-snug tracking-tight text-black dark:text-neutral-300">
@@ -25,6 +28,7 @@ const Projects = async () => {
           ))
         }
       </div>
+      <Footer />
     </>
   );
 };

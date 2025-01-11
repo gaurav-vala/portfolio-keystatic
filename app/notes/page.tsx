@@ -1,13 +1,16 @@
 import React from "react";
-import { reader } from "../../reader";
+import { reader } from "../reader";
 
 import "../styles.css";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const Notes = async () => {
   const projects = await reader.collections.notes.all();
 
   return (
     <>
+      <Header />
       <main className="min-h-[calc(100vh-236px)]">
         <section className="mb-5">
           <h2 className="text-3xl italic font-black text-red-500">My Notes</h2>
@@ -35,6 +38,7 @@ const Notes = async () => {
           }
         </ul>
       </main>
+      <Footer />
     </>
   );
 };
