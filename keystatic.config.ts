@@ -15,7 +15,7 @@ export default config({
     notes: collection({
       label: 'Notes',
       slugField: 'title',
-      path: 'notes/*',
+      path: 'content/notes/*',
       format: { contentField: 'content' },
       schema: {
         title: fields.slug({ name: { label: 'Title' } }),
@@ -33,7 +33,7 @@ export default config({
     projects: collection({
       label: 'Projects',
       slugField: 'title',
-      path: 'projects/*',
+      path: 'content/projects/*',
       format: 'json',
       schema: {
         title: fields.slug({ name: { label: 'Project Title' } }),
@@ -45,22 +45,37 @@ export default config({
         technologies: fields.text({ label: 'Techologies Used', description: 'Add Technologies with commas' }),
         github: fields.url({ label: 'Github Repository' }),
         live: fields.url({ label: 'Live Link' }),
-
+      },
+    }),
+    experience: collection({
+      label: 'Experience',
+      slugField: 'companyName',
+      path: 'content/experience/*',
+      schema: {
+        companyName: fields.slug({ name: { label: 'Company Name', validation: { isRequired: false } } }),
+        jobTitle: fields.text({ label: 'Job Title', validation: { isRequired: false } }),
+        location: fields.text({ label: 'Location', validation: { isRequired: false } }),
+        duration: fields.text({ label: 'Duration', validation: { isRequired: true } }),
+        description: fields.text({ label: 'Description', multiline: true }),
+        technologies: fields.array(
+          fields.text({ label: 'Technology' }),
+          { label: 'Technologies Used', itemLabel: props => props.value }
+        ),
       },
     }),
     skills: collection({
       label: 'Skills',
       slugField: 'title',
-      path: 'skills/*',
+      path: 'content/skills/*',
       format: 'json',
       schema: {
         title: fields.slug({ name: { label: 'Skill' } }),
       },
     }),
     aboutpage: collection({
-      label: 'About Page',
+      label: 'About',
       slugField: 'title',
-      path: 'aboutpage/*',
+      path: 'content/aboutpage/*',
       format: { contentField: 'content' },
       schema: {
         title: fields.slug({ name: { label: 'Title' } }),
@@ -75,6 +90,26 @@ export default config({
         }),
       },
     }),
+    uses: collection({
+      label: 'Uses',
+      slugField: 'title',
+      path: 'content/uses/*',
+      format: { contentField: 'content' },
+      schema: {
+        title: fields.slug({ name: { label: 'Title' } }),
+        content: fields.mdx({
+          label: 'About Page Content',
+          options: {
+            image: {
+              directory: "public/assets/images/about",
+              publicPath: "/assets/images/about/", // Adjusted the path
+            },
+          },
+        }),
+      },
+    }
+
+    )
   },
   singletons: {
     about: singleton({

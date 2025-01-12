@@ -87,7 +87,7 @@ export default async function Homepage() {
       <section>
         <div className="mt-4">
           <h2 className="font-serif text-xl italic font-black text-red-500">
-            my skills
+            tech i can work with
           </h2>
           <div className="flex flex-wrap gap-2 mt-2">
             {
