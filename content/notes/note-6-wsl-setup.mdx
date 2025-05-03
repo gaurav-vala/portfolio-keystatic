@@ -1,0 +1,186 @@
+---
+title: 'Note #6 WSL Setup'
+---
+# Setting Up Ubuntu 24.04 in WSL with VS Code – A Beginner's Guide with Fixes
+
+Setting up a Linux environment inside Windows using WSL (Windows Subsystem for Linux) can be a game-changer for developers. However, the first-time setup often comes with a few hurdles. Here’s a guide documenting my setup experience, the issues I faced, and how I solved them.
+
+---
+
+## 🚀 Initial Setup
+
+1. **Install WSL and Ubuntu 24.04**
+   * From PowerShell (as admin):
+
+     ```
+     wsl --install -d Ubuntu-24.04
+
+
+     ```
+   * Launch Ubuntu from Start Menu and complete installation.
+2. **Verify Installation**
+
+   ```
+   lsb_release -a
+   echo "Hello from Linux!"
+   ls
+
+
+   ```
+
+   This confirms WSL is working.
+
+---
+
+## 🧭 Navigating the File System
+
+* Default directory: `/root` or `/home/<your-user>`.
+* You can list directories with:
+
+  ```
+  ls
+
+
+  ```
+
+---
+
+## 📁 Creating a Projects Directory
+
+1. Create and enter the folder:
+
+   ```
+   mkdir -p ~/projects && cd ~/projects
+
+
+   ```
+2. Clone a GitHub repository:
+
+   ```
+   git clone <https://github.com/user/repo-name.git>
+   cd repo-name
+
+
+   ```
+
+---
+
+## 🖥️ Opening Projects in VS Code
+
+### ✅ Recommended
+
+* Launch VS Code first.
+* Click **Remote Explorer > WSL Targets**.
+* Select Ubuntu 24.04.
+* Then, open the folder graphically from there.
+
+### ❌ Problem: `code: not found`
+
+**Fix:**
+
+* Open VS Code in Windows.
+* Press `Ctrl+Shift+P`, type:
+
+  ```
+  Shell Command: Install 'code' command in PATH
+
+
+  ```
+
+### ❌ Problem: `sudo: not found`
+
+**Fix:**
+
+* Make sure you're using a proper Ubuntu WSL install (not a stripped-down rootfs or broken distro).
+* You can reset or reinstall using:
+
+  ```
+  wsl --unregister Ubuntu-24.04
+  wsl --install -d Ubuntu-24.04
+
+
+  ```
+
+### ❌ Problem: "Unable to open folder"
+
+**Fix:**
+
+* This typically means the folder path is broken or VS Code WSL extension didn’t load properly.
+* Open the folder via:
+
+  ```
+  \\\\wsl$\\Ubuntu-24.04\\home\\<username>\\projects
+
+
+  ```
+
+---
+
+## 📂 Opening File Manager from WSL
+
+```
+explorer.exe .
+
+
+```
+
+This opens the current WSL path in Windows File Explorer.
+
+---
+
+## 🗃️ Working with a D: Drive Projects Folder in WSL
+
+If your actual project files are stored in another drive like `D:\\Projects`, you can access and work on them in WSL without changing your setup.
+
+### ✅ Access D: Drive Directly in WSL
+
+```
+cd /mnt/d/Projects
+ls
+code .
+
+
+```
+
+### ✅ Create a Symlink to D: Projects in WSL Home
+
+```
+ln -s /mnt/d/Projects ~/projects
+cd ~/projects
+
+
+```
+
+This keeps you in your home structure but links to your Windows files.
+
+### ✅ Open in VS Code (Inside WSL)
+
+```
+cd ~/projects
+code .
+
+
+```
+
+---
+
+## 🧩 Helpful Commands
+
+```
+whoami           # Get current Linux user
+cd ~             # Go to home directory
+mkdir folder     # Create a folder
+ls -la           # List all files with permissions
+code .           # Open current directory in VS Code
+
+
+```
+
+---
+
+## 📌 Tips
+
+* Pin your WSL home directory in Quick Access:
+  * Open File Explorer
+  * Navigate to: `\\\\wsl$\\Ubuntu-24.04\\home\\your-user`
+  * Right-click > Pin to Quick Access
