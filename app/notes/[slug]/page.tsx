@@ -5,6 +5,7 @@ import { reader } from "../../reader";
 import { markdocConfig } from "../../../keystatic.config";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import CodeBlock from "../../components/CodeBlock";
 
 type PostParams = {
   params: {
@@ -42,12 +43,18 @@ export default async function Post({ params }: PostParams) {
   return (
     <>
       <Header />
-      <article className="w-full max-w-full prose-sm prose prose-code:bg-red-100 prose-code:font-mono prose-red min-h-[calc(100vh-236px)]">
+      <article className="w-full max-w-full prose-sm prose prose-code:font-mono prose-red min-h-[calc(100vh-236px)] prose-p:tracking-tighter">
         <div className="mb-5">
           <h1 className="text-4xl italic font-black">{post.title}</h1>
         </div>
         <hr className="mt-2 border-neutral-300" />
-        {Markdoc.renderers.react(renderable, React)}
+        {Markdoc.renderers.react(renderable, React, {
+          components: {
+            code: ({ children, language }: { children: string; language?: string }) => (
+              <CodeBlock language={language}>{children}</CodeBlock>
+            )
+          }
+        })}
       </article>
       <Footer />
     </>

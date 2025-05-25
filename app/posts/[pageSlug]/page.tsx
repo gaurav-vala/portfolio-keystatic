@@ -108,7 +108,7 @@ export default async function Post({ params }: PostParams) {
         </div>
 
         <div
-          className="max-w-full mt-6 prose-sm prose prose-red prose-hr:my-4"
+          className="max-w-full mt-6 prose-sm prose prose-red prose-hr:my-4 prose-p:tracking-tight"
           dangerouslySetInnerHTML={{
             __html: post.content.html,
           }}

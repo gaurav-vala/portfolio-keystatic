@@ -2,6 +2,7 @@ import React from "react";
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import CodeBlock from "../components/CodeBlock";
 import { reader } from "../reader";
 
 import "../styles.css";
@@ -27,7 +28,13 @@ const About = async () => {
       <Header />
       <section className="min-h-[calc(100vh-236px)]">
         <div className="w-full prose prose-red prose-p:font-medium prose-p:leading-snug">
-          {Markdoc.renderers.react(renderable, React)}
+          {Markdoc.renderers.react(renderable, React, {
+            components: {
+              code: ({ children, language }: { children: string; language?: string }) => (
+                <CodeBlock language={language}>{children}</CodeBlock>
+              )
+            }
+          })}
         </div>
       </section>
       <Footer />

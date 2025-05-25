@@ -2,6 +2,7 @@ import React from "react";
 import "../styles.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import CodeBlock from "../components/CodeBlock";
 import { reader } from "../reader";
 import Markdoc from "@markdoc/markdoc";
 import { markdocConfig } from "../../keystatic.config";
@@ -32,7 +33,13 @@ const Experience = async () => {
           </p>
         </section>
         <section className="prose-sm prose prose-strong:underline prose-strong:italic md:prose-lg prose-red prose-headings:text-red-500 prose-headings:underline prose-li:my-4">
-          {Markdoc.renderers.react(renderable, React)}
+          {Markdoc.renderers.react(renderable, React, {
+            components: {
+              code: ({ children, language }: { children: string; language?: string }) => (
+                <CodeBlock language={language}>{children}</CodeBlock>
+              )
+            }
+          })}
         </section>
       </main>
       <Footer />

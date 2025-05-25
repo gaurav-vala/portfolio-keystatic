@@ -1,6 +1,19 @@
 import { config, collection, fields, singleton } from '@keystatic/core';
+import CodeBlock from "./app/components/CodeBlock";
 
-export const markdocConfig = fields.markdoc.createMarkdocConfig({});
+export const markdocConfig = {
+  tags: {
+    code: {
+      render: 'CodeBlock', // Use a string reference for the component
+      attributes: {
+        language: {
+          type: String,
+          description: "The programming language for syntax highlighting."
+        }
+      }
+    }
+  }
+};
 
 export default config({
   storage: {
@@ -24,7 +37,7 @@ export default config({
           options: {
             image: {
               directory: "public/assets/images/posts",
-              publicPath: "/assets/images/posts/", // Adjusted the path
+              publicPath: "/assets/images/posts/",
             },
           },
         }),
@@ -42,7 +55,7 @@ export default config({
           description: 'Check this if you want to show this project on the homepage',
         }),
         description: fields.text({ label: 'Project Description', multiline: true }),
-        technologies: fields.text({ label: 'Techologies Used', description: 'Add Technologies with commas' }),
+        technologies: fields.text({ label: 'Technologies Used', description: 'Add Technologies with commas' }),
         github: fields.url({ label: 'Github Repository' }),
         live: fields.url({ label: 'Live Link' }),
       },
@@ -84,7 +97,7 @@ export default config({
           options: {
             image: {
               directory: "public/assets/images/about",
-              publicPath: "/assets/images/about/", // Adjusted the path
+              publicPath: "/assets/images/about/",
             },
           },
         }),
@@ -98,18 +111,16 @@ export default config({
       schema: {
         title: fields.slug({ name: { label: 'Title' } }),
         content: fields.mdx({
-          label: 'About Page Content',
+          label: 'Uses Page Content', // Fixed label text
           options: {
             image: {
               directory: "public/assets/images/about",
-              publicPath: "/assets/images/about/", // Adjusted the path
+              publicPath: "/assets/images/about/",
             },
           },
         }),
       },
-    }
-
-    )
+    })
   },
   singletons: {
     about: singleton({
