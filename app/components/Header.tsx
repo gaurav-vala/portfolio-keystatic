@@ -2,9 +2,9 @@
 
 // import Link from "next/link";
 import { Link } from "next-view-transitions";
-import React, { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
-import { usePreventBodyScroll, useMediaQuery } from "react-haiku";
+import { useMediaQuery, usePreventBodyScroll } from "react-haiku";
 
 function Header() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -29,19 +29,16 @@ function Header() {
 
   const breakpoint = useMediaQuery("(max-width: 991px)", false);
 
-  console.log(breakpoint);
 
   return (
     <div
-      className={`flex items-center justify-between pb-6 overflow-hidden ${
-        toggleMenu && "menu_active"
-      }`}
+      className={`flex items-center justify-between pb-6 overflow-hidden ${toggleMenu && "menu_active"
+        }`}
     >
       <Link
         href={"/"}
-        className={`font-serif pl-1  italic font-black ${
-          toggleMenu ? "text-white text-2xl" : "text-black text-xl"
-        } tracking-tight dark:text-neutral-50 relative z-[999] transition-all duration-500`}
+        className={`font-serif pl-1  italic font-black ${toggleMenu ? "text-white text-2xl" : "text-black text-xl"
+          } tracking-tight dark:text-neutral-50 relative z-[999] transition-all duration-500`}
       >
         gaurav
       </Link>
@@ -62,9 +59,8 @@ function Header() {
             }}
           >
             <Link
-              className={`text-[16px] font-medium tracking-tighter transition-all duration-300 ${
-                toggleMenu && breakpoint ? "opacity-100 translate-y-0" : ""
-              }`}
+              className={`text-[16px] font-medium tracking-tighter transition-all duration-300 ${toggleMenu && breakpoint ? "opacity-100 translate-y-0" : ""
+                }`}
               href={item.href}
               style={{
                 transitionDelay: breakpoint ? `${index * 150}ms` : "0ms",

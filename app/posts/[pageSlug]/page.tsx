@@ -70,9 +70,9 @@ export default async function Post({ params }: PostParams) {
       <Header />
       <Link
         href="/posts"
-        className="flex items-center gap-0 mb-4 text-sm tracking-tight text-neutral-600"
+        className="flex items-center gap-0 mb-4 text-xs tracking-tight text-neutral-600"
       >
-        <ChevronLeft /> Back to blogs
+        <ChevronLeft size={16} /> Back to blogs
       </Link>
       <article>
         <img src={post.coverImage.url} alt="" />
