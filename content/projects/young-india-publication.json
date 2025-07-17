@@ -1,0 +1,7 @@
+{
+  "title": "Young India Publication",
+  "onhomepage": true,
+  "description": "A publication site that that serves 100s of visitors monthly. Built to maintain all the Books, Ebooks and Journals with large data of Editors and Journal Papers.",
+  "technologies": "Astro Js, Tailwind CSS, ShadCN",
+  "live": "https://www.youngindiapublication.in/"
+}
