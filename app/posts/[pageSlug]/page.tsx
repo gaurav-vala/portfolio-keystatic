@@ -5,6 +5,7 @@ import "../../styles.css";
 import { ChevronLeft } from "lucide-react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import BlogContent from "./BlogContent";
 
 interface PostParams {
   params: { pageSlug: string };
@@ -107,12 +108,14 @@ export default async function Post({ params }: PostParams) {
           </div>
         </div>
 
-        <div
+        {/* <div
           className="max-w-full mt-6 prose-sm prose prose-red prose-hr:my-4 prose-p:tracking-tight"
           dangerouslySetInnerHTML={{
             __html: post.content.html,
           }}
-        />
+        /> */}
+
+        <BlogContent content={post.content.html} />
       </article>
       <Footer />
     </>

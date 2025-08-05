@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500&display=swap");
 @import "inter-ui/inter.css";
 
 @tailwind base;
@@ -112,6 +113,100 @@ img {
 
 .menu-toggle.active .menu-bar[data-position="bottom"] {
   transform: translateY(0) rotate(-45deg) scaleX(1.05);
+}
+
+/* Override Prism styles to match your design */
+pre[class*="language-"] {
+  margin: 1.5rem 0;
+  padding: 1.5rem;
+  border-radius: 8px;
+  font-family: "Fira Code", "Consolas", "Monaco", monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-x: auto;
+  background: #2d3748 !important;
+  border: 1px solid #4a5568;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+code[class*="language-"] {
+  font-family: "Fira Code", "Consolas", "Monaco", monospace;
+  font-size: 14px;
+}
+
+/* Inline code styling */
+:not(pre) > code[class*="language-"] {
+  background: #f7fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  padding: 0.2em 0.4em;
+  font-size: 0.85em;
+  color: #e53e3e;
+}
+
+/* Line numbers styling */
+.line-numbers .line-numbers-rows {
+  border-right: 1px solid #4a5568;
+  padding-right: 1em;
+}
+
+.line-numbers-rows > span:before {
+  color: #718096;
+  font-size: 12px;
+}
+
+/* Copy button styling */
+.prism-copy-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 12px;
+  background: #4a5568;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.prism-copy-button:hover {
+  background: #2d3748;
+}
+
+/* Language label */
+pre[class*="language-"]:before {
+  content: attr(data-language);
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.25rem 0.5rem;
+  font-size: 11px;
+  text-transform: uppercase;
+  background: #e53e3e;
+  color: white;
+  border-bottom-left-radius: 4px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* Responsive design */
+@media (max-width: 640px) {
+  pre[class*="language-"] {
+    margin-left: -1rem;
+    margin-right: -1rem;
+    border-radius: 0;
+    padding: 1rem;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :not(pre) > code[class*="language-"] {
+    background: #2d3748;
+    border-color: #4a5568;
+    color: #f7fafc;
+  }
 }
 
 @media (max-width: 991px) {
