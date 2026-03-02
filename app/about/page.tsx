@@ -27,7 +27,7 @@ const About = async () => {
     <>
       <Header />
       <section className="min-h-[calc(100vh-236px)]">
-        <div className="w-full prose prose-red prose-p:font-medium prose-p:leading-snug">
+        <div className="w-full prose prose-red prose-p:leading-snug dark:prose-p:text-neutral-100 dark:prose-headings:text-white">
           {Markdoc.renderers.react(renderable, React, {
             components: {
               code: ({ children, language }: { children: string; language?: string }) => (

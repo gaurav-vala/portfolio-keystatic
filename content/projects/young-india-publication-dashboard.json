@@ -1,0 +1,7 @@
+{
+  "title": "Young India Publication - Dashboard",
+  "order": 2,
+  "onhomepage": true,
+  "description": "Built a portal to manage the lifecycle of research papers, providing dedicated dashboards for Admins, Authors, and Reviewers. Designed a multi-role workflow that allows authors to submit manuscripts, reviewers to leave feedback, and admins to oversee\nthe entire publication process in one place. Created a centralized file-sharing system that lets researchers upload documents and share them with the editorial team for\nReview",
+  "technologies": "Next.js, MongoDB, Mongoose, Redux Toolkit, Resend Mail, Cloudflare R2"
+}

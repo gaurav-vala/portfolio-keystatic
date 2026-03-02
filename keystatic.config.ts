@@ -50,6 +50,10 @@ export default config({
       format: 'json',
       schema: {
         title: fields.slug({ name: { label: 'Project Title' } }),
+        order: fields.integer({
+          label: 'Display Order',
+          description: 'Lower numbers appear first (e.g. 1 = top). Leave blank to sort last.',
+        }),
         onhomepage: fields.checkbox({
           label: 'Show on Homepage',
           description: 'Check this if you want to show this project on the homepage',
@@ -74,8 +78,19 @@ export default config({
           fields.text({ label: 'Technology' }),
           { label: 'Technologies Used', itemLabel: props => props.value }
         ),
+        isFeatured: fields.checkbox({ label: 'Featured (show expanded on homepage)' }),
+        logo: fields.image({
+          label: 'Company Logo',
+          directory: 'public/images/experience',
+          publicPath: '/images/experience/',
+        }),
+        websiteUrl: fields.url({ label: 'Website URL' }),
+        twitterUrl: fields.url({ label: 'Twitter / X URL' }),
+        githubUrl: fields.url({ label: 'GitHub URL' }),
+        linkedinUrl: fields.url({ label: 'LinkedIn URL' }),
       },
     }),
+
     skills: collection({
       label: 'Skills',
       slugField: 'title',

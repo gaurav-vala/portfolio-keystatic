@@ -30,67 +30,67 @@ import 'prismjs/plugins/toolbar/prism-toolbar.css';
 import 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.js';
 
 interface BlogContentProps {
-    content: string;
-    className?: string;
+  content: string;
+  className?: string;
 }
 
 export default function BlogContent({
-    content,
-    className = 'max-w-full mt-6 prose prose-hr:my-4 prose-p:tracking-tighter prose-code:text-white'
+  content,
+  className = 'max-w-full mt-6 prose prose-hr:my-4 prose-p:tracking-tighter prose-code:text-white dark:prose-p:text-neutral-100! dark:prose-headings:text-white dark:prose-strong:text-white dark:prose-code:text-white dark:prose-li:text-neutral-100!'
 }: BlogContentProps) {
-    const contentRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
 
-    useEffect(() => {
-        if (contentRef.current) {
-            // Process all code blocks
-            const codeBlocks = contentRef.current.querySelectorAll('pre code[class*="language-"]');
+  useEffect(() => {
+    if (contentRef.current) {
+      // Process all code blocks
+      const codeBlocks = contentRef.current.querySelectorAll('pre code[class*="language-"]');
 
-            codeBlocks.forEach((codeBlock) => {
-                const preElement = codeBlock.parentElement;
-                if (preElement) {
-                    // Add line numbers class
-                    preElement.classList.add('line-numbers');
+      codeBlocks.forEach((codeBlock) => {
+        const preElement = codeBlock.parentElement;
+        if (preElement) {
+          // Add line numbers class
+          preElement.classList.add('line-numbers');
 
-                    // Add language label
-                    const languageClass = Array.from(codeBlock.classList)
-                        .find(cls => cls.startsWith('language-'));
+          // Add language label
+          const languageClass = Array.from(codeBlock.classList)
+            .find(cls => cls.startsWith('language-'));
 
-                    if (languageClass) {
-                        const language = languageClass.replace('language-', '');
-                        preElement.setAttribute('data-language', language);
-                    }
-                }
-
-                // Apply Prism highlighting
-                Prism.highlightElement(codeBlock as Element);
-            });
-
-            // Also handle code blocks without explicit language classes
-            const genericCodeBlocks = contentRef.current.querySelectorAll('pre code:not([class*="language-"])');
-            genericCodeBlocks.forEach((codeBlock) => {
-                // Add a default language class
-                codeBlock.classList.add('language-javascript');
-
-                const preElement = codeBlock.parentElement;
-                if (preElement) {
-                    preElement.classList.add('line-numbers');
-                    preElement.setAttribute('data-language', 'javascript');
-                }
-
-                Prism.highlightElement(codeBlock as Element);
-            });
+          if (languageClass) {
+            const language = languageClass.replace('language-', '');
+            preElement.setAttribute('data-language', language);
+          }
         }
-    }, [content]);
 
-    return (
-        <>
-            <div
-                ref={contentRef}
-                className={className}
-                dangerouslySetInnerHTML={{ __html: content }}
-            />
+        // Apply Prism highlighting
+        Prism.highlightElement(codeBlock as Element);
+      });
 
-            <style jsx global>{`
+      // Also handle code blocks without explicit language classes
+      const genericCodeBlocks = contentRef.current.querySelectorAll('pre code:not([class*="language-"])');
+      genericCodeBlocks.forEach((codeBlock) => {
+        // Add a default language class
+        codeBlock.classList.add('language-javascript');
+
+        const preElement = codeBlock.parentElement;
+        if (preElement) {
+          preElement.classList.add('line-numbers');
+          preElement.setAttribute('data-language', 'javascript');
+        }
+
+        Prism.highlightElement(codeBlock as Element);
+      });
+    }
+  }, [content]);
+
+  return (
+    <>
+      <div
+        ref={contentRef}
+        className={className}
+        dangerouslySetInnerHTML={{ __html: content }}
+      />
+
+      <style jsx global>{`
         /* Custom Prism styling */
         @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500&display=swap');
         
@@ -171,6 +171,6 @@ export default function BlogContent({
           }
         }
       `}</style>
-        </>
-    );
+    </>
+  );
 }

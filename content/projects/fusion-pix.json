@@ -1,5 +1,6 @@
 {
   "title": "FusionPix",
+  "order": 5,
   "onhomepage": false,
   "description": "This is a small app that uses blend modes to blend different images in different screen sizes",
   "technologies": "React Js, Tailwind CSS, React Crop",

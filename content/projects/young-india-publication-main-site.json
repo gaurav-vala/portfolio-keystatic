@@ -1,0 +1,8 @@
+{
+  "title": "Young India Publication - Main Site",
+  "order": 1,
+  "onhomepage": true,
+  "description": "Developed the public-facing platform for the Publication, serving 3,000+ monthly visitors. Created a specialized book and chapter viewing system using Astro’s Content Collections and MDX for academic content. Integrated Cloudflare R2 for scalable asset storage and Razorpay to facilitate seamless payment processing. Leveraged React JS and ShadCN to build highly responsive UI components within the Astro framework.",
+  "technologies": "Astro JS, Content Collections API, MDX, Tailwind CSS, Cloudflare R2, Razorpay",
+  "live": "https://www.youngindiapublication.in/"
+}

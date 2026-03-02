@@ -6,7 +6,7 @@ const SingleProject = ({ entry }) => {
     .map((item, i) => `${item}`);
 
   return (
-    <div className="py-2 border-b rounded-sm border-neutral-300 dark:border-neutral-700">
+    <div className="py-2">
       <h3 className="text-2xl font-black text-cyan-500">{entry.title}</h3>
       <p className="pt-2 text-sm tracking-tight text-neutral-700 dark:text-neutral-300">
         {entry.description}

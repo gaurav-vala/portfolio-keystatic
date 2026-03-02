@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
-import "../styles.css";
-import Header from "../components/Header";
 import Footer from "../components/Footer";
+import Header from "../components/Header";
 import { reader } from "../reader";
+import "../styles.css";
 
 interface ExperienceItem {
   companyName: string;
@@ -33,21 +32,21 @@ const SingleExperienceItem = ({ entry }) => {
         {jobTitle} at{" "}
         <span className="italic text-neutral-500">{companyName}</span>
       </h3>
-      <p className="text-sm font-medium text-neutral-500 dark:text-neutral-100">
+      <p className="text-sm font-medium text-neutral-500 dark:text-neutral-100!">
         {duration}
       </p>
-      <p className="text-sm font-medium text-neutral-500 dark:text-neutral-100">
+      <p className="text-sm font-medium text-neutral-500 dark:text-neutral-100!">
         Location: {location}
       </p>
       {description !== "" && (
-        <p className="py-4 text-sm leading-snug text-neutral-900">
+        <p className="py-4 text-sm leading-snug text-neutral-900 dark:text-neutral-300">
           {description}
         </p>
       )}
 
       {technologies.length > 0 && (
         <div className="pt-2">
-          <p className="mb-2 font-serif italic leading-none text-red-500">
+          <p className="mb-2 font-serif italic leading-none text-red-500 dark:text-red-500">
             technologies i worked with
           </p>
           <div className="flex flex-wrap items-center gap-1 md:gap-2">
@@ -95,7 +94,7 @@ const Experience = async () => {
             not much, I certainly am sure I have learned quite a lot.
           </p>
         </section>
-        <section>
+        <section className="dark:text-neutral-100 mb-4">
           {sortedExperience.map((experience, index) => (
             <SingleExperienceItem key={index} entry={experience.entry} />
           ))}

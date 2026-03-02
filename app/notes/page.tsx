@@ -19,16 +19,16 @@ const Notes = async () => {
             random and just anything that I want to write about.
           </p>
         </section>
-        <ul>
+        <ul className="divide-y divide-neutral-300 dark:divide-neutral-700">
           {
             // @ts-ignore
             projects.map((project) => (
               <li
                 key={project.slug}
-                className="py-2 border-b border-neutral-300 dark:border-neutral-700"
+                className="py-2 dark:text-neutral-100"
               >
                 <a
-                  className="font-serif text-xl font-bold text-neutral-700"
+                  className="font-serif text-xl font-bold text-neutral-700 dark:text-neutral-100"
                   href={`/notes/${project.slug}`}
                 >
                   {project.entry.title}

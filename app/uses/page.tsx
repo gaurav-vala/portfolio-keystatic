@@ -32,7 +32,7 @@ const Experience = async () => {
             I like to use
           </p>
         </section>
-        <section className="prose-sm prose prose-strong:underline prose-strong:italic md:prose-lg prose-red prose-headings:text-red-500 prose-headings:underline prose-li:my-4">
+        <section className="prose-sm prose prose-strong:underline prose-strong:italic md:prose-lg prose-red prose-headings:text-red-500 prose-headings:underline prose-li:my-4 dark:prose-p:text-neutral-100! dark:prose-li:text-neutral-100! dark:prose-headings:text-white dark:prose-strong:text-white dark:prose-code:text-white">
           {Markdoc.renderers.react(renderable, React, {
             components: {
               code: ({ children, language }: { children: string; language?: string }) => (

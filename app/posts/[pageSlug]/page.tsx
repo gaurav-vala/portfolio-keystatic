@@ -8,7 +8,7 @@ import Footer from "../../components/Footer";
 import BlogContent from "./BlogContent";
 
 interface PostParams {
-  params: { pageSlug: string };
+  params: Promise<{ pageSlug: string }>;
 }
 
 interface Post {
@@ -30,7 +30,8 @@ interface Post {
   title: string;
 }
 
-export default async function Post({ params }: PostParams) {
+export default async function Post(props: PostParams) {
+  const params = await props.params;
   const {
     data: { publication },
   } = await query({
@@ -71,13 +72,13 @@ export default async function Post({ params }: PostParams) {
       <Header />
       <Link
         href="/posts"
-        className="flex items-center gap-0 mb-4 text-xs tracking-tight text-neutral-600"
+        className="flex items-center gap-0 mb-4 text-xs tracking-tight text-neutral-600 dark:text-neutral-400"
       >
         <ChevronLeft size={16} /> Back to blogs
       </Link>
       <article>
         <img src={post.coverImage.url} alt="" />
-        <h1 className="my-2 text-4xl font-black text-neutral-700">
+        <h1 className="my-2 text-4xl font-black text-neutral-700 dark:text-neutral-100">
           {post.title}
         </h1>
         <div className="flex items-center gap-2 mt-4">
@@ -90,7 +91,7 @@ export default async function Post({ params }: PostParams) {
             <p className="font-serif text-xl">
               {post.author.name} -{" "}
               <a
-                className="text-base text-red-500"
+                className="text-base text-red-500 dark:text-red-500"
                 href={post.author.socialMediaLinks.twitter}
               >
                 Twitter

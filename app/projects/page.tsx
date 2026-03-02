@@ -20,7 +20,7 @@ const Projects = async () => {
           trying to solve some problem I have.
         </p>
       </section>
-      <div className="flex flex-col gap-4 mt-2">
+      <div className="flex flex-col gap-4 mt-2 divide-y divide-neutral-300 dark:divide-neutral-700">
         {
           // @ts-ignore
           projects.map((project) => (

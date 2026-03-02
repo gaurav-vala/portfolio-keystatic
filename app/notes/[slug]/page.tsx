@@ -8,12 +8,13 @@ import Footer from "../../components/Footer";
 import CodeBlock from "../../components/CodeBlock";
 
 type PostParams = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
-export default async function Post({ params }: PostParams) {
+export default async function Post(props: PostParams) {
+  const params = await props.params;
   const { slug } = params;
 
   // Fetch the post
@@ -43,7 +44,7 @@ export default async function Post({ params }: PostParams) {
   return (
     <>
       <Header />
-      <article className="w-full max-w-full prose-sm prose prose-code:font-mono prose-red min-h-[calc(100vh-236px)] prose-p:tracking-tighter">
+      <article className="w-full max-w-full prose-sm prose prose-code:font-mono prose-red dark:prose-red dark:prose-code:font-mono dark:prose-p:text-neutral-100 dark:prose-headings:text-white min-h-[calc(100vh-236px)] prose-p:tracking-tighter">
         <div className="mb-5">
           <h1 className="text-4xl italic font-black">{post.title}</h1>
         </div>

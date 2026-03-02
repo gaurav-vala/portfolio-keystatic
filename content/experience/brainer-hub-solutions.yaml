@@ -1,5 +1,20 @@
 companyName: BrainerHub Solutions
-jobTitle: Web Designer
-location: Ahmedabad
+jobTitle: Software Developer
+location: Ahmedabad, India (On-Site)
 duration: July 2023 - Present
-technologies: []
+description: |-
+  • Built and maintained scalable full-stack web applications using Next.js and React, delivering high-quality user experiences.
+  • Collaborated closely with design and backend teams to translate requirements into robust, production-ready features.
+  • Improved application performance through code splitting, lazy loading, and caching strategies.
+  • Contributed to shared component libraries and internal tooling to streamline development workflows.
+technologies:
+  - Next.js
+  - React
+  - TypeScript
+  - Tailwind CSS
+  - Node.js
+  - PostgreSQL
+isFeatured: true
+logo: /images/experience/brainerhub.png
+websiteUrl: https://brainerhub.com
+linkedinUrl: https://linkedin.com/company/brainerhub-solutions

@@ -1,5 +1,6 @@
 {
   "title": "Pennywise",
+  "order": 3,
   "onhomepage": true,
   "description": "A Minimal Expense Tracker that helps track expenses with a clean UI. The App uses Local Storage to store the Expense entries.",
   "technologies": "Next Js, Dexie js, ShadCN UI, Tailwind CSS",

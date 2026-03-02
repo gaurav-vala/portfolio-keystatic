@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@/components/theme-provider";
 import { ViewTransitions } from "next-view-transitions";
 import Head from "next/head";
 
@@ -36,8 +37,14 @@ export default function RootLayout({
           {/* <meta name="twitter:site" content="@yourhandle" /> */}
           {/* <meta name="twitter:creator" content="@yourhandle" /> */}
         </Head>
-        <body className="dark:bg-neutral-800 bg-neutral-100">
-          <main className="px-5 pt-4">{children}</main>
+        <body className="dark:bg-neutral-950 bg-neutral-100">
+          <main className="px-5 pt-4">
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >{children}</ThemeProvider></main>
         </body>
       </html>
     </ViewTransitions>

@@ -1,15 +1,16 @@
 companyName: WebOccult Technologies
 jobTitle: Jr. Web Designer
-location: Ahmedabad
+location: Ahmedabad, India (On-Site)
 duration: August 2022 - July 2023
-description: >-
-  Created pixel perfect Websites that are being used by hundreds of global user
-  bases. Worked as a dedicated developer, directly communicating with clients to
-  understand their needs and implementing them in their websites. Managed team
-  in multiple tight deadline projects while delivering them on time with quality
-  codebase Worked on projects with changing requirements while exploring
-  feasibility of on hand tasks.
+description: |-
+  • Created pixel-perfect websites used by hundreds of global users.
+  • Worked directly with clients to understand needs and implement solutions.
+  • Managed team in multiple tight-deadline projects while delivering quality codebases on time.
+  • Worked on projects with changing requirements while exploring feasibility of on-hand tasks.
 technologies:
-  - Html/Css
+  - Html/CSS
   - JavaScript/jQuery
   - HubSpot
+isFeatured: false
+logo: /images/experience/weboccult.png
+websiteUrl: https://weboccult.com
